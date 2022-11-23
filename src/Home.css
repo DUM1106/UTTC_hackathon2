@@ -1,0 +1,13 @@
+.home h1{
+    font-size: 120px;
+    position: absolute;
+    top: 25%;
+    left: 45%;
+  }
+.message{
+    color: aquamarine;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 42%;
+}

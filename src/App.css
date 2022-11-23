@@ -1,0 +1,24 @@
+.background {
+  width: 100%;
+  height: 100vh;
+  background-color: #3b627a;
+  position: fixed;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.assist h1 {
+  text-align: center;
+  font-size: 70px;
+  letter-spacing: 3px;
+  color: aquamarine;
+  padding-top: 20px;
+  margin-bottom: 80px;
+  position: fixed;
+  left: 44.5%;
+}
