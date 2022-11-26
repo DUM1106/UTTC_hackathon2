@@ -6,6 +6,9 @@ import Timeline from "./components/Timeline";
 import User from "./components/User";
 import Home from "./components/Home";
 import LoginForm from "./components/LoginForm";
+import RegisterForm from "./components/RegisterForm";
+import ContributionForm from "./components/ContributionForm";
+import AccountEdit from "./components/AccountEdit";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
@@ -13,8 +16,6 @@ function App() {
   let Username = sessionStorage.getItem('accountName')
   let Userpoint = sessionStorage.getItem('Userpoint')
   
-
-
   useEffect(() => {
       const fetchUserpoint = async () => {
       const params:any = {name: Username};
@@ -58,6 +59,7 @@ function App() {
       .catch(console.error);;
   }, [])
 
+  const [isMenu, setIsMenu] = useState(false);
 
    return (
     <div>
@@ -67,10 +69,13 @@ function App() {
       </div>
       <BrowserRouter>
         <Routes>
+          <Route path={`/register/`} element={<RegisterForm/>}/>
           <Route path={`/login/`} element={<LoginForm/>}/>
-          <Route path={`/home/`} element={<Home/>}/>
-          <Route path={`/timeline/`} element={<Timeline len = {len} Data={Data} Username = {Username}/>} />
-          <Route path={`/member/`} element={<User len = {memberlen} Data = {Member} Username = {Username} Userpoint = {Userpoint}/>} />
+          <Route path={`/home/`} element={<Home isMenu={isMenu} setIsMenu={setIsMenu}/>}/>
+          <Route path={`/timeline/`} element={<Timeline isMenu={isMenu} setIsMenu={setIsMenu} len = {len} Data={Data} Username = {Username}/>} />
+          <Route path={`/member/`} element={<User isMenu={isMenu} setIsMenu={setIsMenu} len = {memberlen} Data = {Member} Username = {Username} Userpoint = {Userpoint}/>} />
+          <Route path={`/contribution/`} element={<ContributionForm isMenu={isMenu} setIsMenu={setIsMenu} Username = {Username}/>}/>
+          <Route path={`/accountedit/`} element={<AccountEdit isMenu={isMenu} setIsMenu={setIsMenu} Username = {Username}/>}/>
         </Routes>
       </BrowserRouter>
     </div>

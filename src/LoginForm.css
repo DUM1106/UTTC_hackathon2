@@ -30,6 +30,7 @@
     align-items: center;
     justify-content: space-evenly;
     height: 400px;
+    margin-top: 30px;
   }
   
   .formField {
@@ -53,8 +54,8 @@
     font-weight: 600;
     margin-bottom: 3px;
   }
-  
-  .formContainer button {
+
+  .loginButton {
     background: #0563b4;
     width: 100%;
     margin-top: 10px;
@@ -64,11 +65,29 @@
     padding: 10px 30px;
     font-size: 15px;
     cursor: pointer;
-    transition: all 0.3s;
+  }
+
+  .submitButton {
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 10px 30px;
+    font-size: 15px;
+    cursor: pointer;
   }
   
-  .formContainer button:hover {
-    background-color: #0e528d;
+  
+  .senderSelect {
+    height: 50px;
+  }
+
+  .pointsend {
+    height: 50px;
+  }
+
+  .formFieldContribution {
+    resize: none;
+    height: 100px;
+    padding: 5px 10px;
   }
   
   .errorMsg {
@@ -81,3 +100,27 @@
     color: green;
     margin-top: 15px;
   }
+
+
+  @media  screen and (min-width: 500px) and (max-width: 960px) {
+    .formContainer form {
+      position: absolute;
+      left: 38%;
+    }
+
+    #formContainer form {
+        position: absolute;
+        left: 23%
+      
+    }
+    
+  }
+
+  @media screen and (max-width: 499px){
+
+    .formContainer h1 {
+      font-size: 25px;
+    }
+    
+  }
+

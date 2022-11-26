@@ -19,6 +19,10 @@
     font-size: 25px;
 }
 
+.timeline li:hover {
+    background-color: #2a3d54;
+}
+
 .detail {
     color: black;
     font-size: 30px;
@@ -59,6 +63,10 @@
     margin-right: 5px;
     margin-left: 5px;
     margin-top: 20px;
+}
+
+.detailButton:hover {
+    background-color: #2a3d54;
 }
 
 .textSpace {
@@ -102,3 +110,27 @@
     padding-right: 5px;
 }
 
+
+@media screen and (max-width: 960px) {
+    .timeline {
+        width: 60%;
+        position: absolute;
+  
+    }
+    .timeline li {
+        padding: 20px 50px ;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .timeline {
+        width: 100%;
+        position: absolute;
+        top: 10%;
+        left: 0%; 
+    }
+    .timeline li {
+        padding: 10px ;
+    }
+    
+}

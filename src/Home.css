@@ -1,13 +1,32 @@
+
 .home h1{
+    color: aquamarine;
     font-size: 120px;
-    position: absolute;
+    position: fixed;
     top: 25%;
     left: 45%;
   }
 .message{
     color: aquamarine;
     font-size: 30px;
-    position: absolute;
+    position: fixed;
     top: 50%;
-    left: 42%;
+    left: 39%;
+}
+
+@media screen and (max-width:499px) {
+  .home h1 {
+    font-size: 60px;
+    position: fixed;
+    top: 25%;
+    left: 28%;
+  }
+
+  .message{
+    color: aquamarine;
+    font-size: 18px;
+    position: fixed;
+    top: 40%;
+    left: 10%;
+  }
 }
