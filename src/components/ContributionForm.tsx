@@ -54,7 +54,7 @@ function ContributionForm(props:Props) {
       }, [])
       
     let pointnumber = true;
-      if (point > 0 && point <= 10) {
+      if (point > 0 && point <= 100) {
         pointnumber = false;
       }
   
@@ -96,7 +96,7 @@ function ContributionForm(props:Props) {
                 placeholder="ポイント"
                 value={point}
                 min={0}
-                max={10}
+                max={100}
                 onChange={(e) => setPoint(Number(e.target.value))}
               />
             </div>

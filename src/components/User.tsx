@@ -55,7 +55,7 @@ function User(props:Props) {
     
 
     let pointnumber = true;
-    if (Point > 0 && Point <= 10) {
+    if (Point > 0 && Point <= 100) {
       pointnumber = false;
     }
 
@@ -104,7 +104,7 @@ function User(props:Props) {
       <input className="pointForm"
         type={"number"}
         min={0}
-        max={10}
+        max={100}
         value={Point}
         onChange={(e) => setPoint(Number(e.target.value))}
       ></input>
