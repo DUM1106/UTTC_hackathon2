@@ -19,6 +19,10 @@ function LoginForm() {
       // console.log(formValues);
     };
 
+    const toRegister = () => {
+      window.open('./register');
+    }
+
     const onSubmit = (name:string, email:string, password:string) => {
         axios.post("https://hackathon-4y7j2tipqq-uc.a.run.app/user/login", {
           name: name,
@@ -36,7 +40,6 @@ function LoginForm() {
       });
     }
 
-  
     const handleSubmit = (event:any) => {
       event.preventDefault();
       setFormErrors(validate(formValues));
@@ -81,14 +84,12 @@ function LoginForm() {
       return errors;
     };
 
- 
     return (
     <>
-    <div className="assist">
-        <h1>Assist</h1>
-    </div>
-      <div className="formContainer">
-        <form onSubmit={handleSubmit}>
+
+
+      <div className="formContainer" id = "formContainer">
+        <form>
           <h1>ログインフォーム</h1>
           <hr />
           <div className="uiForm">
@@ -126,7 +127,7 @@ function LoginForm() {
               />
             </div>
             <p className="errorMsg">{formErros.password}</p>
-            <button className="submitButton">登録</button>
+            <button className="loginButton" onClick={(e) => handleSubmit(e)}>ログイン</button>
 
             {Object.keys(formErros).length === 0 && isLogin === 1 && (
               <div className="msgOk">ログインに成功しました</div>
@@ -135,10 +136,12 @@ function LoginForm() {
             {Object.keys(formErros).length === 0 && isLogin === 2 && (
               <div className="msgOk">ログインに失敗しました</div>
             )}
+          <button className="loginButton" onClick={toRegister}>新規登録</button>
 
           </div>
         </form>
       </div>
+     
       </>
     );
   }

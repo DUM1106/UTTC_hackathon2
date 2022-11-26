@@ -3,13 +3,16 @@ import { useState } from "react";
 import axios from "axios";
 import "../User.css";
 import Sidebar from "./Sidebar";
-import Icon from "../images/dog.png";
+import Sidebar2 from "./Sidebar2";
+import Icon from "../images/userIcon.png";
 
 type Props = {
   len: number
   Data: {"name":string; "point": number}[]
   Username: string | null
   Userpoint: string | null
+  isMenu: boolean
+  setIsMenu: any
 }
 
 function User(props:Props) {
@@ -19,9 +22,6 @@ function User(props:Props) {
     const [Receivername, setReceivername] = useState("");
 
 
-
-
-    
     const onSubmit = (sendername:string | null, receivername:string, point:number, message:string) => {
         axios.post("https://hackathon-4y7j2tipqq-uc.a.run.app/user/postcontribution", {
           sendername: sendername,
@@ -32,7 +32,6 @@ function User(props:Props) {
             console.log('body:', response.data);
       });
     }
-
 
       const submit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault()
@@ -50,7 +49,8 @@ function User(props:Props) {
     const closeModal = () => {
         setShowform(false);
         setPoint(0);
-        setMessage("");  
+        setMessage("");
+        window.location.pathname = "./member";
     }
     
 
@@ -64,11 +64,14 @@ function User(props:Props) {
       messagelen = false;
     }
 
+
     return(
     <div>
       <div className="assist">
       </div>
       <Sidebar/>
+      <Sidebar2 isMenu={props.isMenu} setIsmenu={props.setIsMenu}/>
+      <button className="showMenu" onClick = {() => props.setIsMenu(true)}>メニューを表示</button>
     <div className = "user">
           <ul>
             <li><img className = "icon2" src={Icon}/> {props.Username}<br/>
@@ -109,6 +112,7 @@ function User(props:Props) {
       <textarea className="messageForm"
       value={Message}
       style={{ marginBottom: 20 }}
+      placeholder="メッセージ"
       onChange={(e) => setMessage(e.target.value)}
       ></textarea>
       <button className="contributionPost" disabled={!Message || messagelen || pointnumber} onClick = {(e) => submit(e)}> 送信</button>

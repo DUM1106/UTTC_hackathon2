@@ -2,13 +2,16 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import "../Timeline.css";
-import Icon from "../images/dog.png";
+import Icon from "../images/userIcon.png";
 import Sidebar from "./Sidebar";
+import Sidebar2 from "./Sidebar2";
 
 type Props = {
   len: number
   Data: {"id":string; "sender_name": string; "receiver_name": string}[]
   Username: string | null
+  isMenu: boolean
+  setIsMenu: any
 }
 
 function Timeline(props:Props) {
@@ -63,6 +66,8 @@ function Timeline(props:Props) {
       receivername: receivername
     }).then((response:any) => {
         console.log('body:', response.data);
+        window.location.href = "/timeline";
+
   });
   }
 
@@ -95,10 +100,13 @@ function Timeline(props:Props) {
   if (Message.length <= 70) {
     messagelen = false;
   }
+
       
     return(
       <div>
     <Sidebar/>
+    <Sidebar2 isMenu={props.isMenu} setIsmenu={props.setIsMenu}/>
+    <button className="showMenu" onClick = {() => props.setIsMenu(true)}>メニューを表示</button>
     <div className="timeline">
     <div className="assist">
     </div>
@@ -166,6 +174,7 @@ function Timeline(props:Props) {
       <textarea className="messageForm"
       value={Message}
       style={{ marginBottom: 20 }}
+      placeholder="メッセージ"
       onChange={(e) => setMessage(e.target.value)}
       ></textarea>
       <button className="contributionPost" disabled={!Message || messagelen || pointnumber} onClick = {(e) => submit2(e)}> 送信</button>
